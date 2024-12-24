@@ -15,6 +15,8 @@
 #include "func/ver_func.h"
 
 
+//test
+
 int main(){
 	
     PKMN pokemonList[MAX_POKEMON];
