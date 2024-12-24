@@ -1,4 +1,3 @@
-
 int readtxt(const char *filename, PKMN *pokemonList) {
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
@@ -20,18 +19,19 @@ int readtxt(const char *filename, PKMN *pokemonList) {
 	    if (result == EOF) {
 	        break; // Fin del archivo
 	    } else if (result < 5) {
-	        printf("Error al leer la línea %d. Resultados: %d\n", count + 1, result);
-	        break; // Error al leer, puede que la línea esté mal formada
+	        printf("Error al leer la lï¿½nea %d. Resultados: %d\n", count + 1, result);
+	        break; // Error al leer, puede que la lï¿½nea estï¿½ mal formada
 	    }
 	
-	    // Manejar el caso donde type2 puede estar vacío
+	    // Manejar el caso donde type2 puede estar vacï¿½o
 	    if (strcmp(pokemonList[count].type2, "-") == 0) {
-	        strcpy(pokemonList[count].type2, "----"); // Asignar cadena vacía si es un guion
+	        strcpy(pokemonList[count].type2, "----"); // Asignar cadena vacï¿½a si es un guion
 	    }
 	    count++;
 	}
-    return count; // Retorna la cantidad de Pokémon leídos
+    return count; // Retorna la cantidad de Pokï¿½mon leï¿½dos
 }
+
 int addPokemon(const char *filename, PKMN *pokemonList, int *totalPokemons) {
     if (*totalPokemons >= MAX_POKEMON) {
         printf("Error: No se pueden agregar mas Pokemon, limite alcanzado.\n");
@@ -68,19 +68,19 @@ int addPokemon(const char *filename, PKMN *pokemonList, int *totalPokemons) {
     printf("Introduce la descripcion del pokemon: \n");
     scanf("%s", newPokemon.desc);
 
-    // Si el segundo tipo es "-", lo dejamos vacío
+    // Si el segundo tipo es "-", lo dejamos vacï¿½o
     if (strcmp(newPokemon.type2, "-") == 0) {
         strcpy(newPokemon.type2, "");
     }
 
-    // Añadir el Pokémon al arreglo
+    // Aï¿½adir el Pokï¿½mon al arreglo
     pokemonList[*totalPokemons] = newPokemon;
     (*totalPokemons)++;
 
-    // Guardar el nuevo Pokémon en el archivo
+    // Guardar el nuevo Pokï¿½mon en el archivo
     FILE *file = fopen(filename, "a");
     if (file == NULL) {
-        perror("Error al abrir el archivo para añadir el Pokémon");
+        perror("Error al abrir el archivo para aï¿½adir el Pokï¿½mon");
         return -1;
     }
     fprintf(file, "%d %s %s %s %s %d %d %d %s\n", 
@@ -95,7 +95,7 @@ int addPokemon(const char *filename, PKMN *pokemonList, int *totalPokemons) {
 		newPokemon.desc);
     fclose(file);
 
-    printf("Pokémon añadido con éxito.\n");
+    printf("Pokï¿½mon aï¿½adido con ï¿½xito.\n");
     return 0;
 }
 
@@ -118,11 +118,11 @@ int readtxt2(const char *filename, DAT *pokemonList) {
 	    if (result == EOF) {
 	        break; // Fin del archivo
 	    } else if (result < 5) {
-	        printf("Error al leer la línea %d. Resultados: %d\n", count + 1, result);
-	        break; // Error al leer, puede que la línea esté mal formada
+	        printf("Error al leer la lï¿½nea %d. Resultados: %d\n", count + 1, result);
+	        break; // Error al leer, puede que la lï¿½nea estï¿½ mal formada
 	    }
 	   
 	    count++;
 	}
-    return count; // Retorna la cantidad de Pokémon leídos
+    return count; // Retorna la cantidad de Pokï¿½mon leï¿½dos
 }
